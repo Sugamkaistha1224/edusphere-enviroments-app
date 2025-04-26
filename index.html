@@ -257,57 +257,97 @@
 
 
 
-     body {
-      background: #0f2027;  /* optional dark background */
-      background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+     
+body {
+        background: linear-gradient(135deg, #1f2c3b, #2d3a4b); /* Example gradient */
+        color: #fff; /* Text color for better visibility on dark background */
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
     }
 
+     /* Centering the heading */
     .page-heading {
-      font-family: 'Poppins', sans-serif;
-      font-size: 3.5rem;
-      text-align: center;
-      color: #00f2fe;
-      display: inline-block;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 3px solid rgba(255,255,255,0.75);
-      animation: typing 2s steps(20), blink 0.7s step-end infinite;
-      letter-spacing: 2px;
-      text-shadow: 0 0 5px #00f2fe, 0 0 10px #00f2fe, 0 0 20px #00f2fe;
-      position: relative;
+        font-family: 'Poppins', sans-serif;
+        font-size: 3.5rem;
+        text-align: center;
+        color: #00f2fe;
+        display: block; /* Changed to block to ensure it takes up the full width */
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 3px solid rgba(255,255,255,0.75);
+        animation: typing 2s steps(20), blink 0.7s step-end infinite;
+        letter-spacing: 2px;
+        text-shadow: 0 0 5px #00f2fe, 0 0 10px #00f2fe, 0 0 20px #00f2fe;
+        position: relative;
+        margin-top: 20px; /* Space from top */
     }
 
     @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
+        from { width: 0; }
+        to { width: 100%; }
     }
 
     @keyframes blink {
-      0%, 100% { border-color: transparent; }
-      50% { border-color: rgba(255,255,255,0.75); }
+        0%, 100% { border-color: transparent; }
+        50% { border-color: rgba(255,255,255,0.75); }
     }
 
     /* Glowing underline */
     .page-heading::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 4px;
-      margin: 10px auto 0;
-      background: linear-gradient(90deg, #00f2fe, #4facfe);
-      border-radius: 2px;
-      animation: growLine 2s ease-out forwards 2s;
+        content: '';
+        display: block;
+        width: 0;
+        height: 4px;
+        margin: 10px auto 0;
+        background: linear-gradient(90deg, #00f2fe, #4facfe);
+        border-radius: 2px;
+        animation: growLine 2s ease-out forwards 2s;
     }
 
     @keyframes growLine {
-      from { width: 0; }
-      to { width: 80px; }
+        from { width: 0; }
+        to { width: 80px; }
+    }
+
+    /* Centering the dashboard container */
+    .dashboard-container {
+        text-align: center;
+        margin-top: 40px; /* Increased space from heading */
+        opacity: 0;
+        animation: fadeInUp 1s forwards;
+    }
+
+    .dashboard-link {
+        display: inline-block;
+        font-size: 14px;
+        color: #4e9af1;
+        text-decoration: none;
+        background: linear-gradient(90deg, #d4f1f9, #eef8ff);
+        padding: 8px 20px;
+        border-radius: 25px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        transition: all 0.4s ease;
+        font-weight: 600;
+    }
+
+    .dashboard-link:hover {
+        background: linear-gradient(90deg, #4e9af1, #a0c4ff);
+        color: #ffffff;
+        transform: scale(1.05);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 	</style>
 </head>
@@ -315,9 +355,54 @@
 	 <header>
     <h1 class="page-heading">Edusphere Environment</h1>
     <style>
-   .dashboard-container {
+    /* Centering the heading */
+    .page-heading {
+        font-family: 'Poppins', sans-serif;
+        font-size: 3.5rem;
         text-align: center;
-        margin-top: 20px;
+        color: #00f2fe;
+        display: block; /* Changed to block to ensure it takes up the full width */
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 3px solid rgba(255,255,255,0.75);
+        animation: typing 2s steps(20), blink 0.7s step-end infinite;
+        letter-spacing: 2px;
+        text-shadow: 0 0 5px #00f2fe, 0 0 10px #00f2fe, 0 0 20px #00f2fe;
+        position: relative;
+        margin-top: 20px; /* Space from top */
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    @keyframes blink {
+        0%, 100% { border-color: transparent; }
+        50% { border-color: rgba(255,255,255,0.75); }
+    }
+
+    /* Glowing underline */
+    .page-heading::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 4px;
+        margin: 10px auto 0;
+        background: linear-gradient(90deg, #00f2fe, #4facfe);
+        border-radius: 2px;
+        animation: growLine 2s ease-out forwards 2s;
+    }
+
+    @keyframes growLine {
+        from { width: 0; }
+        to { width: 80px; }
+    }
+
+    /* Centering the dashboard container */
+    .dashboard-container {
+        text-align: center;
+        margin-top: 40px; /* Increased space from heading */
         opacity: 0;
         animation: fadeInUp 1s forwards;
     }
